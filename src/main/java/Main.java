@@ -3,16 +3,10 @@ public class Main {
         // your code here
         SavingsAccount savingsAccount = new SavingsAccount();
 
-       Thread t1 = new Thread(()->savingsAccount.deposit(10_000));
-       Thread t2 = new Thread(()->savingsAccount.withdraw(5_000));
-       Thread t3 = new Thread(()->savingsAccount.withdraw(15_000));
-       Thread t4 = new Thread(()->savingsAccount.withdraw(5_000));
-
-       t1.setName("thread-1");
-       t2.setName("thread-2");
-       t3.setName("thread-3");
-       t4.setName("thread-4");
-
+       Thread t1 = new Thread(()->savingsAccount.deposit(10_000),"thread-1");
+       Thread t2 = new Thread(()->savingsAccount.withdraw(5_000),"thread-2");
+       Thread t3 = new Thread(()->savingsAccount.withdraw(15_000),"thread-3");
+       Thread t4 = new Thread(()->savingsAccount.withdraw(5_000),"thread-4");
 
        t1.start();
        t2.start();
